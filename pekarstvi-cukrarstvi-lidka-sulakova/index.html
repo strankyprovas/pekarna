@@ -247,10 +247,7 @@
   </style>
 </head>
 <body>
-<div id="ukazka-banner" style="position:fixed;top:0;left:0;width:100%;background:#c98a4c;color:#2a201a;text-align:center;padding:10px;font-size:14px;font-weight:600;z-index:9999;box-sizing:border-box;">
-  ⚡ UKÁZKA – finální web bude s vašimi fotkami a texty
-</div>
-<style>body{margin-top:40px !important;}</style>
+
 
 <div id="progress"></div>
 
@@ -461,9 +458,6 @@
       </form>
     </div>
   </div>
-  <div style="text-align:center;margin:3rem 0 0;">
-    <a href="mailto:matyas.vrbaa@gmail.com?subject=Mám zájem o web – Pekařství & Cukrářství Lidka Šuláková" style="display:inline-block;background:#c98a4c;color:#2a201a;border-radius:999px;padding:15px 40px;font-size:17px;text-decoration:none;font-weight:700;">Chci takový web</a>
-  </div>
 </section>
 
 <!-- FOOTER -->
@@ -483,7 +477,7 @@
     </div>
     <div class="footer-col">
       <h4>Otevírací doba</h4>
-      <ul class="footer-hours"><li><span>Po–Pá</span><span>6:00–18:00</span></li><li><span>Sobota</span><span>6:00–12:00</span></li><li><span>Neděle</span><span>zavřeno</span></li></ul>
+      <ul class="footer-hours"><li><span>Objednávky</span><span>603 530 337</span></li><li><span>Vyzvednutí</span><span>dle dohody</span></li><li><span>Kelč</span><span>135</span></li></ul>
     </div>
     <div class="footer-col">
       <h4>Kontakt</h4>
@@ -499,7 +493,7 @@
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Nahoru">↑</button>
 
 <script>
-(function(){ var img=new Image(); img.onload=function(){ document.getElementById('special').style.setProperty('--special-img',"url('photos/kolacky-svatebni.jpg')"); }; img.src='photos/kolacky-svatebni.jpg'; })();
+(function(){ var img=new Image(); img.onload=function(){ document.getElementById('special').style.setProperty('--special-img',"url('photos/dort-svatebni.jpg')"); }; img.src='photos/dort-svatebni.jpg'; })();
 
 window.addEventListener('scroll', () => {
   const s = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
@@ -523,7 +517,7 @@ document.querySelectorAll('[data-stat="reviews"]').forEach(item => { const sp=it
 const cntObs = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ const n=+e.target.dataset.count; if(n) animCount(e.target,n); cntObs.unobserve(e.target); } }); }, {threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
 
-const photos = ['photos/kolacky-svatebni.jpg','photos/dort-svatebni-patrovy.jpg','photos/dort-ovocny.jpg','photos/dort-ruzovy.jpg','photos/beranci.jpg','photos/dort-srdce.jpg','photos/cukrovi.jpg','photos/dort-auto.jpg','photos/dort-hrosik.jpg','photos/dort-fotbal.jpg','photos/dort-svatebni.jpg','photos/dort-kapr.jpg'].filter(s => s && s.length);
+const photos = ['photos/kolacky-svatebni.jpg','photos/dort-svatebni-patrovy.jpg','photos/dort-ovocny.jpg','photos/dort-ruzovy.jpg','photos/beranci.jpg','photos/dort-srdce.jpg','photos/cukrovi.jpg','photos/dort-auto.jpg','photos/dort-hrosik.jpg','photos/dort-fotbal.jpg','photos/dort-svatebni.jpg','photos/dort-kapr.jpg','photos/dort-svatebni-srdce.jpg','photos/dort-srdce-jednicka.jpg','photos/dort-sport.jpg','photos/dort-kun.jpg'].filter(s => s && s.length);
 const rows = [document.getElementById('row1'), document.getElementById('row2')];
 if(photos.length > 0){ rows.forEach(row => { [...photos,...photos,...photos,...photos].forEach(src => { const img=document.createElement('img'); img.src=src; img.alt='Galerie'; img.loading='lazy'; img.onerror=function(){ this.remove(); }; row.appendChild(img); }); }); }
 else { document.getElementById('galerie').style.display='none'; }
