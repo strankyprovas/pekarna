@@ -278,7 +278,7 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-media"><img src="../stock_photos/photo_1.jpg" alt="Pekařství & Cukrářství Lidka Šuláková" onerror="this.style.display='none'"></div>
+  <div class="hero-media"><img src="photos/hero-frgaly.jpg" alt="Pekařství & Cukrářství Lidka Šuláková" onerror="this.style.display='none'"></div>
   <div class="hero-scrim"></div>
   <div class="hero-inner">
     <div class="hero-badge">Kelč · Pekárna</div>
@@ -307,7 +307,7 @@
 <section id="onas" data-r>
   <div class="about-grid">
     <div class="about-figure" data-r="left">
-      <img src="../stock_photos/photo_2.jpg" alt="Interiér – Pekařství & Cukrářství Lidka Šuláková" onerror="this.style.visibility='hidden'">
+      <img src="photos/vyroba-trubicky.jpg" alt="Interiér – Pekařství & Cukrářství Lidka Šuláková" onerror="this.style.visibility='hidden'">
       <div class="about-seal"><strong>♥</strong><span>Děláme<br>s láskou</span></div>
     </div>
     <div class="about-content" data-r="right">
@@ -353,18 +353,18 @@
       <div class="board-item"><div class="board-item-top"><span class="board-name">Povidlový frgál</span></div><p class="board-desc">Tmavá povidla bez přidaného cukru navíc.</p></div>
     </div>
     <div class="board-col" data-r>
-      <h3>Koláčky &amp; chleba</h3>
+      <h3>Koláčky &amp; dorty</h3>
       <div class="board-item"><div class="board-item-top"><span class="board-name">Svatební koláčky</span></div><p class="board-desc">Drobné, na svatby i oslavy — na objednávku.</p></div>
       <div class="board-item"><div class="board-item-top"><span class="board-name">Domácí koláčky</span></div><p class="board-desc">Tvarohové, makové, povidlové.</p></div>
-      <div class="board-item"><div class="board-item-top"><span class="board-name">Chleba</span></div><p class="board-desc">Poctivý domácí, bez zlepšováků.</p></div>
+      <div class="board-item"><div class="board-item-top"><span class="board-name">Dorty na objednávku</span></div><p class="board-desc">Svatební, narozeninové i dětské — dle přání.</p></div>
       <div class="board-item"><div class="board-item-top"><span class="board-name">Rolády</span></div><p class="board-desc">Pečené i šlehačkové, dle nabídky.</p></div>
     </div>
     <div class="board-col" data-r>
-      <h3>Trubičky &amp; kremrole</h3>
+      <h3>Trubičky &amp; pečivo</h3>
       <div class="board-item"><div class="board-item-top"><span class="board-name">Listové trubičky</span></div><p class="board-desc">Křupavé, plněné poctivým krémem.</p></div>
       <div class="board-item"><div class="board-item-top"><span class="board-name">Kremrole</span></div><p class="board-desc">Nadýchaný sníh, ručně točené.</p></div>
       <div class="board-item"><div class="board-item-top"><span class="board-name">Korpusy na trubičky</span></div><p class="board-desc">K dokoupení i domů — naplňte si vlastní.</p></div>
-      <div class="board-item"><div class="board-item-top"><span class="board-name">Pravé marmelády</span></div><p class="board-desc">Hrušková a další — jen ovoce, žádné přísady.</p></div>
+      <div class="board-item"><div class="board-item-top"><span class="board-name">Chleba</span></div><p class="board-desc">Poctivý domácí, bez zlepšováků.</p></div>
     </div>
   </div>
   <p class="board-note">Nabídka se mění podle denní produkce — ceny najdete v prodejně. Frgály a svatební koláčky doporučujeme objednat předem.</p>
@@ -422,7 +422,7 @@
       </div>
       <div class="special-card">
         <div class="special-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4"/><path d="M12 8v13M5 12v9h14v-9M12 8S9 3 7 5s3 3 5 3zM12 8s3-5 5-3-3 3-5 3z"/></svg></div>
-        <div><h4>Rolády &amp; trubičky</h4><p>Sladká tečka na oslavu — rolády, kremrole, listové trubičky.</p></div>
+        <div><h4>Dorty na přání</h4><p>Svatební, narozeninové i dětské — auto, míč, zvířátka, co si vymyslíte.</p></div>
       </div>
     </div>
   </div>
@@ -499,7 +499,7 @@
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Nahoru">↑</button>
 
 <script>
-(function(){ var img=new Image(); img.onload=function(){ document.getElementById('special').style.setProperty('--special-img',"url('../stock_photos/photo_3.jpg')"); }; img.src='../stock_photos/photo_3.jpg'; })();
+(function(){ var img=new Image(); img.onload=function(){ document.getElementById('special').style.setProperty('--special-img',"url('photos/kolacky-svatebni.jpg')"); }; img.src='photos/kolacky-svatebni.jpg'; })();
 
 window.addEventListener('scroll', () => {
   const s = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
@@ -523,7 +523,7 @@ document.querySelectorAll('[data-stat="reviews"]').forEach(item => { const sp=it
 const cntObs = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ const n=+e.target.dataset.count; if(n) animCount(e.target,n); cntObs.unobserve(e.target); } }); }, {threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
 
-const photos = ['../stock_photos/photo_1.jpg','../stock_photos/photo_2.jpg','../stock_photos/photo_3.jpg','../stock_photos/photo_4.jpg','../stock_photos/photo_5.jpg'].filter(s => s && s.length);
+const photos = ['photos/kolacky-svatebni.jpg','photos/dort-svatebni-patrovy.jpg','photos/dort-ovocny.jpg','photos/dort-ruzovy.jpg','photos/beranci.jpg','photos/dort-srdce.jpg','photos/cukrovi.jpg','photos/dort-auto.jpg','photos/dort-hrosik.jpg','photos/dort-fotbal.jpg','photos/dort-svatebni.jpg','photos/dort-kapr.jpg'].filter(s => s && s.length);
 const rows = [document.getElementById('row1'), document.getElementById('row2')];
 if(photos.length > 0){ rows.forEach(row => { [...photos,...photos,...photos,...photos].forEach(src => { const img=document.createElement('img'); img.src=src; img.alt='Galerie'; img.loading='lazy'; img.onerror=function(){ this.remove(); }; row.appendChild(img); }); }); }
 else { document.getElementById('galerie').style.display='none'; }
