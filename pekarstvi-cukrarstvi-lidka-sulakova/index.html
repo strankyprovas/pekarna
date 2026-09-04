@@ -304,7 +304,7 @@
 <section id="onas" data-r>
   <div class="about-grid">
     <div class="about-figure" data-r="left">
-      <img src="photos/vyroba-trubicky.jpg" alt="Interiér – Pekařství & Cukrářství Lidka Šuláková" onerror="this.style.visibility='hidden'">
+      <img src="photos/vyroba-valeni.jpg" alt="Ruční válení těsta na frgály" onerror="this.style.visibility='hidden'">
       <div class="about-seal"><strong>♥</strong><span>Děláme<br>s láskou</span></div>
     </div>
     <div class="about-content" data-r="right">
@@ -516,7 +516,7 @@ document.querySelectorAll('[data-stat="reviews"]').forEach(item => { const sp=it
 const cntObs = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ const n=+e.target.dataset.count; if(n) animCount(e.target,n); cntObs.unobserve(e.target); } }); }, {threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
 
-const photos = ['photos/kolacky-svatebni.jpg','photos/dort-svatebni-patrovy.jpg','photos/dort-ovocny.jpg','photos/dort-ruzovy.jpg','photos/beranci.jpg','photos/dort-srdce.jpg','photos/cukrovi.jpg','photos/dort-auto.jpg','photos/dort-hrosik.jpg','photos/dort-fotbal.jpg','photos/dort-svatebni.jpg','photos/dort-kapr.jpg','photos/dort-svatebni-srdce.jpg','photos/dort-srdce-jednicka.jpg','photos/dort-sport.jpg','photos/dort-kun.jpg','photos/f-frgaly-prodejna.jpg','photos/f-trubicky.jpg','photos/f-vetrnicky.jpg','photos/f-dort-jednorozec.jpg','photos/f-dort-svatebni-ruze.jpg','photos/f-dort-sud.jpg','photos/f-zakusky-mix.jpg','photos/f-dorty-trio.jpg'].filter(s => s && s.length);
+const photos = ['photos/kolacky-svatebni.jpg','photos/dort-svatebni-patrovy.jpg','photos/dort-ovocny.jpg','photos/dort-ruzovy.jpg','photos/beranci.jpg','photos/dort-srdce.jpg','photos/cukrovi.jpg','photos/dort-auto.jpg','photos/dort-hrosik.jpg','photos/dort-fotbal.jpg','photos/dort-svatebni.jpg','photos/dort-kapr.jpg','photos/dort-svatebni-srdce.jpg','photos/dort-srdce-jednicka.jpg','photos/dort-sport.jpg','photos/dort-kun.jpg','photos/f-frgaly-prodejna.jpg','photos/f-trubicky.jpg','photos/f-vetrnicky.jpg','photos/f-dort-jednorozec.jpg','photos/f-dort-svatebni-ruze.jpg','photos/f-dort-sud.jpg','photos/f-zakusky-mix.jpg','photos/f-dorty-trio.jpg','photos/pec-frgaly.jpg','photos/frgaly-syrove.jpg','photos/priprava-mak.jpg','photos/frgaly-boruvkove.jpg','photos/rohlicky-rosty.jpg','photos/chleba-pec.jpg','photos/kolacky-balene.jpg'].filter(s => s && s.length);
 const rows = [document.getElementById('row1'), document.getElementById('row2')];
 if(photos.length > 0){ rows.forEach(row => { [...photos,...photos,...photos,...photos].forEach(src => { const img=document.createElement('img'); img.src=src; img.alt='Galerie'; img.loading='lazy'; img.onerror=function(){ this.remove(); }; row.appendChild(img); }); }); }
 else { document.getElementById('galerie').style.display='none'; }
