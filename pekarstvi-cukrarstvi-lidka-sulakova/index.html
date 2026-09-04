@@ -136,8 +136,8 @@
     .gallery-head .eyebrow { justify-content: center; }
     .gallery-head .eyebrow::before { display: none; }
     .marquee-wrap { display: flex; flex-direction: column; gap: .8rem; }
-    .marquee-row { display: flex; gap: .8rem; width: max-content; animation: marquee 42s linear infinite; }
-    .marquee-row.reverse { animation-direction: reverse; animation-duration: 52s; }
+    .marquee-row { display: flex; gap: .8rem; width: max-content; animation: marquee 110s linear infinite; }
+    .marquee-row.reverse { animation-direction: reverse; animation-duration: 130s; }
     .marquee-row img { width: 320px; height: 220px; object-fit: cover; flex-shrink: 0; border-radius: 12px; transition: transform .4s; }
     .marquee-row img:hover { transform: scale(1.015); }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -516,7 +516,7 @@ document.querySelectorAll('[data-stat="reviews"]').forEach(item => { const sp=it
 const cntObs = new IntersectionObserver(es => { es.forEach(e => { if(e.isIntersecting){ const n=+e.target.dataset.count; if(n) animCount(e.target,n); cntObs.unobserve(e.target); } }); }, {threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
 
-const photos = ['photos/kolacky-svatebni.jpg','photos/dort-svatebni-patrovy.jpg','photos/dort-ovocny.jpg','photos/dort-ruzovy.jpg','photos/beranci.jpg','photos/dort-srdce.jpg','photos/cukrovi.jpg','photos/dort-auto.jpg','photos/dort-hrosik.jpg','photos/dort-fotbal.jpg','photos/dort-svatebni.jpg','photos/dort-kapr.jpg','photos/dort-svatebni-srdce.jpg','photos/dort-srdce-jednicka.jpg','photos/dort-sport.jpg','photos/dort-kun.jpg','photos/f-frgaly-prodejna.jpg','photos/f-trubicky.jpg','photos/f-vetrnicky.jpg','photos/f-dort-jednorozec.jpg','photos/f-dort-svatebni-ruze.jpg','photos/f-dort-sud.jpg','photos/f-zakusky-mix.jpg','photos/f-dorty-trio.jpg','photos/pec-frgaly.jpg','photos/frgaly-syrove.jpg','photos/priprava-mak.jpg','photos/frgaly-boruvkove.jpg','photos/rohlicky-rosty.jpg','photos/chleba-pec.jpg','photos/kolacky-balene.jpg'].filter(s => s && s.length);
+const photos = ['photos/kolacky-svatebni.jpg','photos/dort-svatebni-patrovy.jpg','photos/dort-ovocny.jpg','photos/dort-ruzovy.jpg','photos/beranci.jpg','photos/dort-srdce.jpg','photos/cukrovi.jpg','photos/dort-auto.jpg','photos/dort-hrosik.jpg','photos/dort-fotbal.jpg','photos/dort-svatebni.jpg','photos/dort-kapr.jpg','photos/dort-svatebni-srdce.jpg','photos/dort-srdce-jednicka.jpg','photos/dort-sport.jpg','photos/dort-kun.jpg','photos/f-frgaly-prodejna.jpg','photos/f-trubicky.jpg','photos/f-vetrnicky.jpg','photos/f-dort-jednorozec.jpg','photos/f-dort-svatebni-ruze.jpg','photos/f-dort-sud.jpg','photos/f-zakusky-mix.jpg','photos/f-dorty-trio.jpg','photos/pec-frgaly.jpg','photos/frgaly-syrove.jpg','photos/priprava-mak.jpg','photos/frgaly-boruvkove.jpg','photos/rohlicky-rosty.jpg','photos/chleba-pec.jpg','photos/kolacky-balene.jpg','photos/vyroba-slehac.jpg','photos/vyroba-plneni.jpg','photos/pec-makove.jpg'].filter(s => s && s.length);
 const rows = [document.getElementById('row1'), document.getElementById('row2')];
 if(photos.length > 0){ rows.forEach(row => { [...photos,...photos,...photos,...photos].forEach(src => { const img=document.createElement('img'); img.src=src; img.alt='Galerie'; img.loading='lazy'; img.onerror=function(){ this.remove(); }; row.appendChild(img); }); }); }
 else { document.getElementById('galerie').style.display='none'; }
