@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pekařství Masařík – pekařství Uherské Hradiště</title>
+<meta name="description" content="Domácí pečivo jako od babičky — Pekařství Masařík Uherské Hradiště. Čerstvé pečivo z poctivých surovin, každý den.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kurka:#7a4a21;      /* kůrka */
+  --zito:#2a1f16;       /* tmavé žito */
+  --psenice:#e8d3a9;    /* pšenice */
+  --smetana:#fdf8f0;    /* smetanová */
+  --mouka:#fffdf9;      /* mouka */
+  --marmelada:#b5443a;  /* marmeláda – akcent */
+  --seda:#6e6259;
+  --linka:#e6d9c4;
+  --stin:0 14px 40px rgba(42,31,22,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Rubik',sans-serif;background:var(--mouka);color:var(--zito);line-height:1.7;overflow-x:hidden;padding-top:38px}
+h1,h2,h3,h4,.slab{font-family:'Zilla Slab',Georgia,serif;font-weight:600;line-height:1.15}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.sec{padding:110px 0}
+.sec-alt{background:var(--smetana)}
+
+/* --- ukázkový banner --- */
+#ukazka-banner{position:fixed;top:0;left:0;width:100%;background:var(--psenice);color:var(--zito);text-align:center;padding:10px;font-size:14px;font-weight:600;z-index:9999;box-sizing:border-box}
+
+/* --- progress --- */
+#progress{position:fixed;top:38px;left:0;height:3px;width:100%;background:var(--marmelada);transform:scaleX(0);transform-origin:0 50%;z-index:9998}
+
+/* --- nav --- */
+#navbar{position:fixed;top:38px;left:0;width:100%;z-index:9000;padding:20px 0;transition:.3s;background:transparent}
+#navbar.scrolled{background:rgba(255,253,249,.96);box-shadow:0 2px 20px rgba(42,31,22,.08);padding:12px 0}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Zilla Slab',serif;font-size:1.6rem;font-weight:700;text-decoration:none;color:var(--kurka);letter-spacing:-.01em}
+.nav-logo span{color:var(--marmelada)}
+.nav-links{display:flex;gap:34px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-size:.95rem;font-weight:500;color:var(--zito);transition:.2s}
+.nav-links a:hover{color:var(--marmelada)}
+.nav-tel{background:var(--kurka);color:var(--mouka)!important;padding:11px 24px;border-radius:4px;font-weight:600}
+.ham{display:none;background:none;border:0;font-size:1.7rem;cursor:pointer;color:var(--kurka)}
+#mobile-nav{position:fixed;inset:0;background:var(--zito);z-index:9500;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transform:translateY(-100%);transition:.35s}
+#mobile-nav.open{transform:translateY(0)}
+#mobile-nav a{color:var(--smetana);font-family:'Zilla Slab',serif;font-size:1.7rem;text-decoration:none}
+#close-nav{position:absolute;top:24px;right:28px;background:none;border:0;color:var(--smetana);font-size:2.2rem;cursor:pointer}
+
+/* --- hero --- */
+#hero{position:relative;padding:150px 0 90px;background:
+  radial-gradient(120% 90% at 85% 0%, rgba(232,211,169,.55) 0%, rgba(232,211,169,0) 60%), var(--mouka)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:var(--mouka);border:1px solid var(--linka);
+  padding:8px 18px;border-radius:999px;font-size:.85rem;font-weight:500;color:var(--kurka);margin-bottom:26px}
+.hero-badge i{width:8px;height:8px;border-radius:50%;background:var(--marmelada);display:inline-block}
+#hero h1{font-size:clamp(2.7rem,5.6vw,4.6rem);letter-spacing:-.02em;margin-bottom:22px}
+#hero h1 em{font-style:normal;color:var(--kurka)}
+.hero-sub{font-size:1.14rem;color:var(--seda);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 34px;border-radius:4px;text-decoration:none;font-weight:600;font-size:1rem;transition:.25s;border:2px solid transparent}
+.btn-prim{background:var(--kurka);color:var(--mouka)}
+.btn-prim:hover{background:var(--zito)}
+.btn-ghost{border-color:var(--kurka);color:var(--kurka)}
+.btn-ghost:hover{background:var(--kurka);color:var(--mouka)}
+.hero-media{position:relative}
+.hero-media img{width:100%;height:560px;object-fit:cover;border-radius:4px 4px 90px 4px;box-shadow:var(--stin)}
+.hero-media::after{content:"";position:absolute;left:-18px;bottom:-18px;width:120px;height:120px;
+  background:repeating-linear-gradient(45deg,var(--psenice) 0 6px,transparent 6px 12px);border-radius:4px;z-index:-1}
+
+/* --- pásek faktů --- */
+.fakta{background:var(--zito);color:var(--smetana);padding:0}
+.fakta-in{display:grid;grid-template-columns:repeat(3,1fr)}
+.fakta-i{padding:38px 30px;text-align:center;border-right:1px solid rgba(253,248,240,.12)}
+.fakta-i:last-child{border-right:0}
+.fakta-i strong{display:block;font-family:'Zilla Slab',serif;font-size:1.25rem;margin-bottom:5px}
+.fakta-i span{font-size:.92rem;opacity:.7}
+
+/* --- o nás --- */
+.onas-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
+.onas-img{position:relative}
+.onas-img img{width:100%;height:520px;object-fit:cover;border-radius:4px}
+.oko{font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--marmelada);font-weight:600;margin-bottom:16px;display:block}
+.sec h2{font-size:clamp(2rem,3.6vw,2.9rem);margin-bottom:22px;letter-spacing:-.01em}
+.sec p.lead{color:var(--seda);font-size:1.05rem;margin-bottom:18px}
+.stat-radek{display:flex;gap:40px;margin-top:34px;padding-top:28px;border-top:1px solid var(--linka)}
+.stat b{font-family:'Zilla Slab',serif;font-size:2.1rem;color:var(--kurka);display:block;line-height:1}
+.stat span{font-size:.86rem;color:var(--seda)}
+
+/* --- SIGNATURE 1: denní rytmus --- */
+.rytmus{position:relative;margin-top:56px}
+.rytmus::before{content:"";position:absolute;left:26px;top:14px;bottom:14px;width:2px;background:var(--linka)}
+.rytmus-i{position:relative;padding-left:78px;padding-bottom:38px}
+.rytmus-i:last-child{padding-bottom:0}
+.rytmus-cas{position:absolute;left:0;top:0;width:54px;height:54px;border-radius:50%;background:var(--kurka);color:var(--mouka);
+  display:flex;align-items:center;justify-content:center;font-family:'Zilla Slab',serif;font-weight:600;font-size:.92rem;z-index:1}
+.rytmus-i h4{font-size:1.2rem;margin-bottom:6px}
+.rytmus-i p{color:var(--seda);font-size:.98rem}
+
+/* --- SIGNATURE 2: pult --- */
+.pult{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+.pult-k{background:var(--mouka);border:1px solid var(--linka);border-radius:4px;padding:34px 30px}
+.pult-k h3{font-size:1.35rem;margin-bottom:6px;color:var(--kurka)}
+.pult-k .pozn{font-size:.85rem;color:var(--seda);margin-bottom:22px;display:block}
+.polozka{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px dashed var(--linka)}
+.polozka:last-child{border-bottom:0}
+.polozka .n{font-weight:500}
+.polozka .c{font-family:'Zilla Slab',serif;font-weight:600;color:var(--marmelada);white-space:nowrap}
+.pult-pozn{text-align:center;color:var(--seda);font-size:.92rem;margin-top:30px}
+
+/* --- special band --- */
+#special{position:relative;padding:120px 0;background:var(--zito);color:var(--smetana);background-size:cover;background-position:center}
+#special::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(42,31,22,.94) 0%,rgba(42,31,22,.72) 100%)}
+#special .wrap{position:relative;z-index:1;max-width:660px}
+#special h2{color:var(--smetana)}
+#special p{opacity:.85;margin-bottom:28px}
+
+/* --- galerie --- */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:48px}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;transition:.35s;cursor:pointer}
+.gal img:hover{transform:scale(1.03)}
+
+/* --- recenze --- */
+.test-wrap{max-width:760px;margin:52px auto 0;overflow:hidden;position:relative}
+#test-track{display:flex;transition:transform .5s ease}
+.test-i{min-width:100%;text-align:center;padding:0 18px}
+.test-i p{font-family:'Zilla Slab',serif;font-size:1.35rem;line-height:1.6;margin-bottom:20px}
+.test-i cite{font-style:normal;font-size:.9rem;color:var(--seda)}
+.hvezdy{color:var(--marmelada);letter-spacing:3px;margin-bottom:18px}
+#test-dots{display:flex;gap:9px;justify-content:center;margin-top:28px}
+#test-dots button{width:9px;height:9px;border-radius:50%;border:0;background:var(--linka);cursor:pointer;padding:0}
+#test-dots button.on{background:var(--kurka);width:26px;border-radius:5px}
+
+/* --- kontakt --- */
+.kont-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.kont-i{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--linka)}
+.kont-i:last-child{border-bottom:0}
+.kont-i .ik{width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:var(--psenice);color:var(--kurka);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.kont-i strong{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--seda);margin-bottom:2px}
+.map-wrap{margin-top:30px;border-radius:4px;overflow:hidden;height:260px}
+.map-wrap iframe{width:100%;height:100%;border:0}
+.form-g{margin-bottom:16px}
+.form-g label{display:block;font-size:.82rem;font-weight:500;margin-bottom:6px}
+.form-g input,.form-g textarea{width:100%;padding:13px 15px;border:1px solid var(--linka);border-radius:4px;font-family:inherit;font-size:.95rem;background:var(--mouka)}
+.form-g textarea{min-height:120px;resize:vertical}
+.form-submit{width:100%;padding:15px;background:var(--kurka);color:var(--mouka);border:0;border-radius:4px;font-family:inherit;font-weight:600;font-size:1rem;cursor:pointer}
+.form-submit:hover{background:var(--zito)}
+
+/* --- footer --- */
+footer{background:var(--zito);color:var(--smetana);padding:70px 0 28px}
+.footer-grid{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px}
+.footer-logo{font-family:'Zilla Slab',serif;font-size:1.6rem;font-weight:700;text-decoration:none;color:var(--smetana)}
+.footer-logo span{color:var(--psenice)}
+.footer-brand p{opacity:.7;font-size:.95rem;margin-top:12px;max-width:330px}
+.footer-col h4{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;color:var(--psenice)}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:9px}
+.footer-col a{color:var(--smetana);opacity:.75;text-decoration:none;font-size:.94rem}
+.footer-col a:hover{opacity:1}
+.footer-bottom{max-width:1180px;margin:44px auto 0;padding:22px 24px 0;border-top:1px solid rgba(253,248,240,.13);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-copy{font-size:.86rem;opacity:.65}
+.footer-copy a{color:var(--psenice)}
+
+#back-top{position:fixed;right:26px;bottom:26px;width:46px;height:46px;border-radius:50%;border:0;background:var(--kurka);
+  color:var(--mouka);font-size:1.2rem;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:8000}
+#back-top.show{opacity:1;pointer-events:auto}
+
+[data-r]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+[data-r].vis{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .hero-grid,.onas-grid,.kont-grid{grid-template-columns:1fr;gap:40px}
+  .hero-media img{height:380px}
+  .pult{grid-template-columns:1fr}
+  .fakta-in{grid-template-columns:1fr}
+  .fakta-i{border-right:0;border-bottom:1px solid rgba(253,248,240,.12)}
+  .nav-links{display:none}
+  .ham{display:block}
+  .footer-grid{grid-template-columns:1fr}
+  .sec{padding:78px 0}
+  .stat-radek{gap:26px;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  [data-r]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="ukazka-banner">⚡ UKÁZKA – finální web bude s vašimi fotkami a texty</div>
+<div id="progress"></div>
+
+<nav id="navbar">
+  <div class="wrap nav-in">
+    <a href="#" class="nav-logo">Pekařství Masařík<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#onas">O pekárně</a></li>
+      <li><a href="#rytmus">Kdy pečeme</a></li>
+      <li><a href="#pult">Náš pult</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="tel:+420 572 570 631" class="nav-tel">+420 572 570 631</a></li>
+    </ul>
+    <button class="ham" id="ham" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div id="mobile-nav">
+  <button id="close-nav" aria-label="Zavřít">×</button>
+  <a href="#onas">O pekárně</a>
+  <a href="#rytmus">Kdy pečeme</a>
+  <a href="#pult">Náš pult</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="tel:+420 572 570 631">+420 572 570 631</a>
+</div>
+
+<!-- HERO -->
+<header id="hero">
+  <div class="wrap hero-grid">
+    <div data-r>
+      <span class="hero-badge"><i></i> Pečeme každý den načerstvo</span>
+      <h1>Domácí pečivo jako od babičky</h1>
+      <p class="hero-sub">Poctivé řemeslo, tradiční receptury a vůně, která vás přivítá už u dveří.</p>
+      <div class="hero-cta">
+        <a href="#pult" class="btn btn-prim">Co u nás najdete</a>
+        <a href="tel:+420 572 570 631" class="btn btn-ghost">Zavolat</a>
+      </div>
+    </div>
+    <div class="hero-media" data-r>
+      <img src="../stock_photos/photo_1.jpg" alt="Pekařství Masařík" onerror="this.style.display='none'">
+    </div>
+  </div>
+</header>
+
+<!-- PÁSEK FAKTŮ -->
+<section class="fakta">
+  <div class="wrap fakta-in">
+    <div class="fakta-i"><strong>Čerstvé denně</strong><span>Pečeme ráno, ne včera</span></div>
+    <div class="fakta-i"><strong>Poctivé suroviny</strong><span>Bez zbytečných náhražek</span></div>
+    <div class="fakta-i"><strong>Uherské Hradiště</strong><span>Jsme kousek od vás</span></div>
+  </div>
+</section>
+
+<!-- O NÁS -->
+<section class="sec" id="onas">
+  <div class="wrap onas-grid">
+    <div class="onas-img" data-r>
+      <img src="../stock_photos/photo_2.jpg" alt="Pekařství Masařík" onerror="this.style.visibility='hidden'">
+    </div>
+    <div data-r>
+      <span class="oko">O nás</span>
+      <h2>Vůně, kterou poznáte už na ulici</h2>
+      <p class="lead">Naše pekárna vznikla z lásky k poctivému řemeslu. Nepoužíváme zbytečné přísady – jen mouku, vodu, kvásek a čas. Přijďte ochutnat rozdíl, který dělá ruční práce a čerstvost.</p>
+      <div class="stat-radek">
+        <div class="stat" id="stat-hodnoceni"><b>4.8</b><span>hodnocení na Googlu</span></div>
+        <div class="stat" id="stat-recenze"><b>174</b><span>spokojených zákazníků</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE 1: DENNÍ RYTMUS -->
+<section class="sec sec-alt" id="rytmus">
+  <div class="wrap">
+    <div style="max-width:640px" data-r>
+      <span class="oko">Náš den</span>
+      <h2>Než přijdete, my už pár hodin pečeme</h2>
+      <p class="lead">Aby bylo ráno co prodávat, začíná se u nás dávno před otevřením. Tady je, jak vypadá běžný den.</p>
+    </div>
+    <div class="rytmus">
+      <div class="rytmus-i" data-r><div class="rytmus-cas">4:00</div>
+        <h4>Zaděláváme</h4><p>Kvas jde do díže. Těsto potřebuje svůj čas a ten mu nejde uspěchat.</p></div>
+      <div class="rytmus-i" data-r><div class="rytmus-cas">6:00</div>
+        <h4>První pečivo</h4><p>Rohlíky, housky a veky jdou z pece rovnou na pult. Ještě teplé.</p></div>
+      <div class="rytmus-i" data-r><div class="rytmus-cas">9:00</div>
+        <h4>Chleba</h4><p>Bochníky po vykynutí. Kdo chce svůj oblíbený, ať nechodí pozdě.</p></div>
+      <div class="rytmus-i" data-r><div class="rytmus-cas">13:00</div>
+        <h4>Sladké</h4><p>Koláče, buchty a zákusky na odpoledne. K tomu káva s sebou.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE 2: PULT -->
+<section class="sec" id="pult">
+  <div class="wrap">
+    <div style="max-width:640px" data-r>
+      <span class="oko">Náš pult</span>
+      <h2>Co u nás obvykle najdete</h2>
+      <p class="lead">Nabídka se mění podle sezóny a podle toho, co se ten den povede. Ceny a přesný sortiment doplníme podle vás — tohle je jen ukázka, jak to bude vypadat.</p>
+    </div>
+    <div class="pult">
+      <div class="pult-k" data-r>
+        <h3>Pečivo</h3><span class="pozn">Každé ráno čerstvé</span>
+        <div class="polozka"><span class="n">Rohlík, houska</span><span class="c">od rána</span></div>
+        <div class="polozka"><span class="n">Veka, bageta</span><span class="c">od rána</span></div>
+        <div class="polozka"><span class="n">Loupák, croissant</span><span class="c">od rána</span></div>
+        <div class="polozka"><span class="n">Slané pečivo</span><span class="c">denně</span></div>
+      </div>
+      <div class="pult-k" data-r>
+        <h3>Chléb</h3><span class="pozn">Bochníky i krájené</span>
+        <div class="polozka"><span class="n">Kmínový</span><span class="c">dopoledne</span></div>
+        <div class="polozka"><span class="n">Žitný a kváskový</span><span class="c">dopoledne</span></div>
+        <div class="polozka"><span class="n">Celozrnný</span><span class="c">dopoledne</span></div>
+        <div class="polozka"><span class="n">Speciály dne</span><span class="c">dle dne</span></div>
+      </div>
+      <div class="pult-k" data-r>
+        <h3>Sladké</h3><span class="pozn">K odpolední kávě</span>
+        <div class="polozka"><span class="n">Koláče a buchty</span><span class="c">denně</span></div>
+        <div class="polozka"><span class="n">Záviny a štrúdly</span><span class="c">denně</span></div>
+        <div class="polozka"><span class="n">Zákusky</span><span class="c">odpoledne</span></div>
+        <div class="polozka"><span class="n">Dorty na objednávku</span><span class="c">na objednávku</span></div>
+      </div>
+    </div>
+    <p class="pult-pozn">Chcete něco na oslavu nebo větší objednávku? Ozvěte se pár dní dopředu na <a href="tel:+420 572 570 631" style="color:var(--kurka);font-weight:600">+420 572 570 631</a>.</p>
+  </div>
+</section>
+
+<!-- SPECIAL -->
+<section id="special">
+  <div class="wrap" data-r>
+    <span class="oko">Na objednávku</span>
+    <h2>Dorty a pečivo na vaši oslavu</h2>
+    <p>Svatba, narozeniny, firemní snídaně nebo jen víkend, kdy chcete mít doma něco lepšího. Řekněte nám, co potřebujete, a domluvíme se na termínu i podobě.</p>
+    <a href="tel:+420 572 570 631" class="btn btn-prim">Domluvit objednávku</a>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="sec sec-alt" id="galerie">
+  <div class="wrap">
+    <div style="max-width:640px" data-r>
+      <span class="oko">Galerie</span>
+      <h2>Nahlédněte k nám</h2>
+    </div>
+    <div class="gal" id="gal-grid"></div>
+  </div>
+</section>
+
+<!-- RECENZE -->
+<section class="sec" id="recenze">
+  <div class="wrap">
+    <div style="max-width:640px;margin:0 auto;text-align:center" data-r>
+      <span class="oko">Ohlasy</span>
+      <h2>Co říkají zákazníci</h2>
+    </div>
+    <div class="test-wrap">
+      <div id="test-track">
+        <div class="test-i">
+          <div class="hvezdy">★★★★★</div>
+          <p>„Nejlepší chleba široko daleko. Vydrží čerstvý několik dní a chutná jako od babičky."</p>
+          <cite>Zákazník · Uherské Hradiště</cite>
+        </div>
+        <div class="test-i">
+          <div class="hvezdy">★★★★★</div>
+          <p>„Chodíme sem každé ráno pro rohlíky. Voní to tam tak, že si člověk vždycky koupí i něco sladkého."</p>
+          <cite>Zákaznice · Uherské Hradiště</cite>
+        </div>
+        <div class="test-i">
+          <div class="hvezdy">★★★★★</div>
+          <p>„Dort na oslavu udělali přesně podle představ a ještě poradili. Doporučuji."</p>
+          <cite>Zákazník · Uherské Hradiště</cite>
+        </div>
+      </div>
+      <div id="test-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="sec sec-alt" id="kontakt">
+  <div class="wrap">
+    <div style="max-width:640px;margin-bottom:50px" data-r>
+      <span class="oko">Kontakt</span>
+      <h2>Zastavte se u nás</h2>
+    </div>
+    <div class="kont-grid">
+      <div data-r>
+        <div class="kont-i"><div class="ik">📍</div><div><strong>Kde nás najdete</strong>Nad Rybníkem 221, Uherské Hradiště, Mařatice</div></div>
+        <div class="kont-i"><div class="ik">📞</div><div><strong>Telefon</strong><a href="tel:+420 572 570 631" style="text-decoration:none">+420 572 570 631</a></div></div>
+        <div class="kont-i"><div class="ik">✉️</div><div><strong>E-mail</strong><a href="mailto:pekarstvi.masarik@seznam.cz" style="text-decoration:none">pekarstvi.masarik@seznam.cz</a></div></div>
+        <div class="map-wrap"><iframe src="https://maps.google.com/maps?q=Nad+Rybn%C3%ADkem+221%2C+Uhersk%C3%A9+Hradi%C5%A1t%C4%9B%2C+Ma%C5%99atice&output=embed" allowfullscreen loading="lazy" title="Mapa – Pekařství Masařík"></iframe></div>
+      </div>
+      <div data-r>
+        <form onsubmit="return false;">
+          <div class="form-g"><label>Jméno</label><input type="text" placeholder="Vaše jméno"></div>
+          <div class="form-g"><label>Telefon</label><input type="tel" placeholder="Číslo, kam se ozveme"></div>
+          <div class="form-g"><label>Zpráva</label><textarea placeholder="Objednávka dortu, dotaz na nabídku nebo cokoliv dalšího…"></textarea></div>
+          <button type="submit" class="form-submit">Odeslat zprávu</button>
+        </form>
+      </div>
+    </div>
+    <div style="text-align:center;margin:3rem 0 0;">
+      <a href="mailto:matyas.vrbaa@gmail.com?subject=Mám zájem o web – Pekařství Masařík" style="display:inline-block;background:var(--kurka);color:var(--mouka);border-radius:999px;padding:15px 40px;font-size:17px;text-decoration:none;font-weight:700;">Chci takový web</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">Pekařství Masařík<span>.</span></a>
+      <p>Čerstvé pečivo z poctivých surovin, každý den.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pekárna</h4>
+      <ul>
+        <li><a href="#onas">O pekárně</a></li>
+        <li><a href="#rytmus">Kdy pečeme</a></li>
+        <li><a href="#pult">Náš pult</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="#">Nad Rybníkem 221</a></li>
+        <li><a href="tel:+420 572 570 631">+420 572 570 631</a></li>
+        <li><a href="mailto:pekarstvi.masarik@seznam.cz">pekarstvi.masarik@seznam.cz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Pekařství Masařík · Vytvořeno s ❤️ od <a href="https://strankyprovas.cz">StránkyProVás</a></p>
+    <p class="footer-copy">Všechna práva vyhrazena</p>
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Nahoru">↑</button>
+
+<script>
+/* pozadí special sekce – jen když se obrázek opravdu načte */
+(function(){ var img=new Image(); img.onload=function(){ var s=document.getElementById('special'); if(s) s.style.backgroundImage="url('../stock_photos/photo_3.jpg')"; }; img.src='../stock_photos/photo_3.jpg'; })();
+
+/* progress + nav + back-top */
+window.addEventListener('scroll', function(){
+  var h = document.documentElement.scrollHeight - innerHeight;
+  var p = document.getElementById('progress');
+  if (p && h > 0) p.style.transform = 'scaleX(' + (scrollY / h) + ')';
+  document.getElementById('navbar').classList.toggle('scrolled', scrollY > 60);
+  document.getElementById('back-top').classList.toggle('show', scrollY > 420);
+}, {passive:true});
+
+/* mobilní menu */
+var ham = document.getElementById('ham'), mnav = document.getElementById('mobile-nav');
+ham.addEventListener('click', function(){ mnav.classList.add('open'); });
+document.getElementById('close-nav').addEventListener('click', function(){ mnav.classList.remove('open'); });
+mnav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mnav.classList.remove('open'); }); });
+
+/* odhalování při scrollu */
+var obs = new IntersectionObserver(function(es){
+  es.forEach(function(e,i){ if(e.isIntersecting){ setTimeout(function(){ e.target.classList.add('vis'); }, i*70); obs.unobserve(e.target); } });
+}, {threshold:.12});
+document.querySelectorAll('[data-r]').forEach(function(el){ obs.observe(el); });
+
+/* statistiky – schovat, když nedávají smysl */
+(function(){
+  var h = document.querySelector('#stat-hodnoceni b'), r = document.querySelector('#stat-recenze b');
+  if (h && (!h.textContent.trim() || h.textContent.trim() === '0')) document.getElementById('stat-hodnoceni').style.display = 'none';
+  if (r && (!r.textContent.trim() || r.textContent.trim() === '0')) document.getElementById('stat-recenze').style.display = 'none';
+})();
+
+/* galerie – bez fotek se sekce skryje */
+(function(){
+  var photos = ['../stock_photos/photo_1.jpg','../stock_photos/photo_2.jpg','../stock_photos/photo_3.jpg','../stock_photos/photo_4.jpg','../stock_photos/photo_5.jpg'].filter(function(s){ return s && s.length; });
+  var grid = document.getElementById('gal-grid');
+  if (!photos.length) { document.getElementById('galerie').style.display = 'none'; return; }
+  photos.forEach(function(src){
+    var im = document.createElement('img');
+    im.src = '../stock_photos/' + src;
+    im.alt = 'Pekařství Masařík';
+    im.loading = 'lazy';
+    im.onerror = function(){ this.remove(); if (!grid.children.length) document.getElementById('galerie').style.display = 'none'; };
+    grid.appendChild(im);
+  });
+})();
+
+/* slider recenzí */
+(function(){
+  var track = document.getElementById('test-track'), dots = document.getElementById('test-dots');
+  if (!track) return;
+  var n = track.children.length, i = 0;
+  for (var k = 0; k < n; k++) {
+    var b = document.createElement('button');
+    b.setAttribute('aria-label', 'Recenze ' + (k+1));
+    b.addEventListener('click', (function(idx){ return function(){ jdi(idx); }; })(k));
+    dots.appendChild(b);
+  }
+  function jdi(x){ i = x; track.style.transform = 'translateX(-' + (i*100) + '%)';
+    Array.prototype.forEach.call(dots.children, function(d, di){ d.classList.toggle('on', di === i); }); }
+  jdi(0);
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(function(){ jdi((i+1) % n); }, 6000);
+  }
+})();
+
+/* plynulé odkazy */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var el = document.querySelector(a.getAttribute('href'));
+    if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
